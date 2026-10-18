@@ -1,0 +1,22 @@
+First create a application
+Create a library inside it being on the application folder in terminal - ng g library shared-ui-lib-existing-app
+Library will have public.api.ts - in which all exposure happens
+Create a reusable shareable component inside it - ng g c components/sample-button --project=shared-ui-lib-existing-app
+
+Add export in public.api.ts - for the component
+Export component form library module
+
+build library - ng build shared-ui-lib-existing-app
+
+import module form dist folder inside application app.module.ts
+use selector <sample-button> in any component inside the app
+
+NOTE
+if you want to publish library on npm, test it locally
+Build library
+go inside dist folder in terminal
+write - npm pack
+it will generate a file like shared-ui-0.0.1.tgz zip file
+
+in any other repo - use npm install <that zip file complete path>
+and use import {ButtonCompinent} from 'shared-ui';
